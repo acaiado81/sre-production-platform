@@ -3,39 +3,24 @@
 ![CI](https://github.com/acaiado81/sre-production-platform/actions/workflows/ci.yml/badge.svg)
 
 ## Overview
-This project demonstrates the design and operation of a **production-grade SRE platform** built with modern DevOps and Site Reliability Engineering practices.
 
-The goal is not to build a feature-rich application, but to show how to:
-- Provision infrastructure reliably
-- Deploy safely with CI/CD
-- Observe systems using meaningful signals
-- Define and enforce SLOs
-- Respond to and learn from failures
+A production-grade SRE / Platform Engineering project demonstrating:
+
+- Containerized FastAPI application
+- AWS EKS with Terraform (VPC, Subnets, IAM, Node Groups)
+- CI/CD via GitHub Actions
+- Kubernetes Deployment, Service, Ingress with ALB
+- TLS with ACM and Route53 DNS
+- Infrastructure as Code best practices
 
 ## Architecture
+
 ![Architecture Diagram](diagrams/architecture.png)
 
-**High-level components:**
-- AWS cloud infrastructure (provisioned via Terraform)
-- Containerized Python service
-- Kubernetes orchestration
-- Automated CI/CD pipeline
-- Centralized logging, metrics, and alerting
-- SLO-based reliability management
-
-## Project Goals
-- Infrastructure as Code (no manual cloud setup)
-- Zero-click deployments
-- SLO-driven alerting (not resource noise)
-- Fast recovery from failure (low MTTR)
-- Cost-aware scaling
-
-## Non-Goals
-- No complex business logic
-- No UI-heavy frontend
-- No vendor-specific lock-in beyond AWS primitives
+- Internet → ALB (HTTPS) → Ingress → Service → Pods → VPC → EKS
 
 ## Repository Structure
+
 - terraform/ # Infrastructure as Code
 - app/ # Python service
 - k8s/ # Kubernetes manifests
@@ -47,7 +32,18 @@ The goal is not to build a feature-rich application, but to show how to:
 - diagrams/ # Architecture diagrams
 
 ## Current Status
-🚧 Project under active development
+
+- Project under active development
+
+## Features
+
+- Modular Terraform
+- Secure CI/CD with OIDC
+- Dockerized application
+- High availability EKS cluster
+- Health probes & resource limits in Kubernetes
+- HTTPS via ACM + Route53
+- Automated ECR image scanning & lifecycle
 
 ## Planned Features
 - Highly available Kubernetes deployment
@@ -57,5 +53,14 @@ The goal is not to build a feature-rich application, but to show how to:
 - Chaos testing and postmortems
 - Python tooling for reliability reporting
 
-## How to Run (Coming Soon)
-Deployment instructions will be added as infrastructure and CI/CD are completed.
+## Getting Started
+
+Add instructions for **someone to clone and explore**, e.g.:
+
+```bash
+git clone https://github.com/acaiado81/sre-production-platform.git
+cd sre-production-platform
+```
+- Terraform: ```bash terraform init && terraform validate```
+- Kubernetes (requires cluster): ```bash kubectl apply -f k8s/app```
+- CI/CD: GitHub Actions runs on push to main
