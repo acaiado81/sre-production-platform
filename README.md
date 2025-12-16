@@ -1,5 +1,7 @@
 # SRE Production Platform
 
+![CI](https://github.com/acaiado81/sre-production-platform/actions/workflows/ci.yml/badge.svg)
+
 ## Overview
 This project demonstrates the design and operation of a **production-grade SRE platform** built with modern DevOps and Site Reliability Engineering practices.
 
