@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
         - name: sre-app
+          # Image will be pulled from ECR (updated after Day 8 apply)
           image: sre-app:latest
           imagePullPolicy: IfNotPresent
           ports:
