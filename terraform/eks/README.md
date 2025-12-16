@@ -18,6 +18,7 @@ This module provisions the compute layer for the SRE Production Platform using A
 terraform init
 terraform plan
 terraform apply
+```
 
 ## Notes
 - AWS credentials must be configured
