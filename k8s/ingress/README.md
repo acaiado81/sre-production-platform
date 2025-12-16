@@ -6,6 +6,10 @@ the AWS Load Balancer Controller.
 ## Traffic Flow
 Internet → AWS ALB → Kubernetes Ingress → Service → Pods
 
+## HTTPS
+TLS is terminated at the AWS ALB using an ACM-managed certificate.
+HTTP traffic is automatically redirected to HTTPS.
+
 ## AWS Load Balancer Controller Installation
 
 ```bash
