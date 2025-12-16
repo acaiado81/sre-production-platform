@@ -2,6 +2,10 @@ provider "aws" {
   region = var.aws_region
 }
 
+module "ecr" {
+  source = "../ecr"
+}
+
 module "vpc" {
   source = "../vpc"
 
