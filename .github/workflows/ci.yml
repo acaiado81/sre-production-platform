@@ -5,6 +5,10 @@ on:
     branches: [ "main" ]
   pull_request:
 
+permissions:
+  id-token: write      # <-- required for OIDC
+  contents: read       # <-- required by checkout
+
 env:
   AWS_REGION: us-east-1
   ECR_REPOSITORY: sre-production-platform
