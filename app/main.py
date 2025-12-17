@@ -4,6 +4,7 @@ import random
 import time
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import JSONResponse
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="SRE Production Platform")
 
@@ -22,6 +23,8 @@ def log(event: str, **kwargs):
         **kwargs
     }))
 
+# --------- Metrics ----------
+Instrumentator().instrument(app).expose(app)
 
 # ---------- Endpoints ----------
 @app.get("/health")
